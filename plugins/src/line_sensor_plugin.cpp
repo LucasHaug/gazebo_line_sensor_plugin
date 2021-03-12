@@ -64,7 +64,7 @@ namespace gazebo {
     *****************************************/
 
     LineSensorPlugin::LineSensorPlugin() : CameraPlugin() {
-        ROS_DEBUG_STREAM("Creating Line Sensor Plugin\n");
+        gzmsg << "Creating Line Sensor Plugin" << std::endl;
     }
 
     void LineSensorPlugin::Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf) {
@@ -78,15 +78,6 @@ namespace gazebo {
 
         if (_sdf->HasElement("brightness_topic")) {
             this->brightness_topic = _sdf->Get<std::string>("brightness_topic");
-
-            // ros::AdvertiseOptions so =
-            //     ros::AdvertiseOptions::create<std_msgs::Float32>(
-            //         "/" + _parent->GetName() + "/" + this->brightness_topic,
-            //         1,
-            //         boost::bind(&VelodynePlugin::OnRosMsg, this, _1),
-            //         ros::VoidPtr(), &this->rosQueue
-            // );
-            // this->rosSub = this->rosNode->subscribe(so);
 
             this->brightness_pub = this->ros_node->advertise<std_msgs::UInt32>(this->brightness_topic, QUEUE_SIZE);
         } else {

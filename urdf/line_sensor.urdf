@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="line_sensor">
+    <pose>0 0 0 0 0 0</pose>
+
+
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.129870310346086 0.0375954725841611 -0.0062043895740128" rpy="0 0 0" />
+            <mass value="0.0011672687384539" />
+            <inertia ixx="5.47409115450365E-08" ixy="2.09224660226093E-12" ixz="-4.24918240082326E-12" iyy="4.54677720247576E-08" iyz="-9.60984996801466E-14" izz="1.1338202252208E-08" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://line_sensor_plugin/models/line_sensor/meshes/sensor.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://line_sensor_plugin/models/line_sensor/meshes/sensor.stl" />
+            </geometry>
+        </collision>
+    </link>
+
+</robot>

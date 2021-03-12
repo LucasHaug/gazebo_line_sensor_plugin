@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="line_sensor"
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- <link name="corpo"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="corpo"/>
+    <child link="base_link"/>
+  </joint> -->
+
+  <!-- Import all Gazebo plugins -->
+  <xacro:include filename="$(find line_sensor_plugin)/urdf/line_sensor.gazebo" />
+
+  <!-- Code exported from SolidWorks -->
+  <xacro:include filename="$(find line_sensor_plugin)/urdf/line_sensor.urdf" />
+
+</robot>

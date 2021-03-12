@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Corpo -->
+  <gazebo reference="base_link">
+    <mu1 value="0.1"/>
+    <mu2 value="0.1"/>
+    <kp value="1e12" />
+    <kd value="1.0" />
+    <material>Gazebo/Blue</material>
+    <turnGravityOff>true</turnGravityOff>
+
+    <sensor type="camera" name="line_sensor">
+      <pose> 0 0 0 0 1.5707 0</pose>
+      <visualize>true</visualize>
+
+      <camera name="__default__">
+          <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.007</stddev>
+          </noise>
+      </camera>
+
+      <plugin name="line_sensor" filename="libline_sensor_plugin.so">
+          <brightness_topic>sensor_one</brightness_topic>
+          <adc_resolution>10</adc_resolution>
+      </plugin>
+    </sensor>
+    
+  </gazebo>
+</robot>

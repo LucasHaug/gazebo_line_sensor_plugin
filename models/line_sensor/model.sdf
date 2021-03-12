@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<sdf version="1.5">
+    <model name="line_sensor">
+        <pose>0 0 0.1  0 0 0</pose>
+        <static>true</static>
+
+        <link name="line_sensor_link">
+            <visual name='sensor1_link_visual'>
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://line_sensor/meshes/sensor.stl</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                <script>
+                    <name>Gazebo/Blue</name>
+                    <uri>file://media/materials/scripts/gazebo.material</uri>
+                </script>
+                </material>
+            </visual>
+
+            <sensor type="camera" name="line_sensor">
+                <pose> 0 0 0 0 1.5707 0</pose>
+                <visualize>true</visualize>
+
+                <camera name="__default__">
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.007</stddev>
+                    </noise>
+                </camera>
+
+                <plugin name="line_sensor" filename="libline_sensor_plugin.so">
+                    <brightness_topic>sensor_one</brightness_topic>
+                    <adc_resolution>10</adc_resolution>
+                </plugin>
+            </sensor>
+        </link>
+    </model>
+</sdf>
+

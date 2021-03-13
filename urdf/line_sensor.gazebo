@@ -24,10 +24,10 @@
       </camera>
 
       <plugin name="line_sensor" filename="libline_sensor_plugin.so">
-          <brightness_topic>sensor_one</brightness_topic>
-          <adc_resolution>10</adc_resolution>
+          <brightnessTopic>sensor_one/value</brightnessTopic>
+          <ADCResolution>10</ADCResolution>
+          <robotNamespace>line_sensor</robotNamespace>
       </plugin>
     </sensor>
-    
   </gazebo>
 </robot>
